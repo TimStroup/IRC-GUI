@@ -2,7 +2,8 @@ import QtQuick.Window 2.2
 import QtQuick 2.10
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.3
-
+import QtQuick 2.7
+import QtQuick.Controls 2.0
 
 Window {
     visible: true
@@ -78,7 +79,18 @@ Window {
                         x: 0
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel Settings")
+                        visible: true
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel Settings"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
                 }
 
@@ -92,11 +104,27 @@ Window {
                         id: channel1Button
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel 1")
                         font.pixelSize: 12
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel 1"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+
                     }
                 }
-
+                ///////////////////////////////////////////////////////////////////////////////
+                Connections {
+                    target: channel1Button
+                    onClicked: channelNameText.text = channel1Button.text
+                }
+                ////////////////////////////////////////////////////////////////////////////////
                 Row {
                     id: channelRow2
                     y: 2 * parent.height / 12
@@ -107,8 +135,19 @@ Window {
                         id: channel2Button
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel 2")
                         font.pixelSize: 12
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel 2"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+
                     }
                 }
 
@@ -122,8 +161,18 @@ Window {
                         id: channel3Button
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel 3")
                         font.pixelSize: 12
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel 3"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
                 }
 
@@ -137,8 +186,18 @@ Window {
                         id: channel4Button
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel 4")
                         font.pixelSize: 12
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel 4"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
                 }
 
@@ -152,8 +211,18 @@ Window {
                         id: channel5Button
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel 5")
                         font.pixelSize: 12
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel 5"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
                 }
 
@@ -167,8 +236,18 @@ Window {
                         id: channel6Button
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel 6")
                         font.pixelSize: 12
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel 6"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
                 }
 
@@ -183,8 +262,18 @@ Window {
                         id: channel7Button
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel 7")
                         font.pixelSize: 12
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel 7"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
                 }
 
@@ -198,8 +287,18 @@ Window {
                         id: channel8Button
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel 8")
                         font.pixelSize: 12
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel 8"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
                 }
 
@@ -213,8 +312,18 @@ Window {
                         id: channel9Button
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel 9")
                         font.pixelSize: 12
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel 9"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
                 }
 
@@ -228,8 +337,18 @@ Window {
                         id: channel10Button
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Channel 10")
                         font.pixelSize: 12
+
+                        background: Rectangle {
+                            opacity: enabled ? 0.3 : 0.3
+                        }
+
+                        contentItem: Text {
+                            color: "#ffffff"
+                            text: "Channel 10"
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
                     }
                 }
             }
@@ -282,6 +401,27 @@ Window {
                 y: parent.height / 12
                 width: parent.width
                 height: 10 * parent.height / 12
+
+                Flickable {
+                    id: flickable
+                    x: 0
+                    y: 0
+                    width: parent.width
+                    height: parent.height
+
+                    TextArea.flickable: TextArea {
+                        id: messageBoard
+                        x: 0
+                        y: 0
+                        width: parent.width
+                        height: parent.height
+                        text: qsTr("Text Area")
+                        readOnly: true
+
+                    }
+
+                    ScrollBar.vertical: ScrollBar {}
+                }
             }
 
             Row {
@@ -302,13 +442,22 @@ Window {
                         width: parent.width
                         height: parent.height
                         leftPadding: 10
+                        font.pixelSize: 20
                         selectionColor: "#1c05df"
                         mouseSelectionMode: TextInput.SelectCharacters
-                        font.pixelSize: 20
                         verticalAlignment: Text.AlignVCenter
+                        selectByMouse: true
+                        Keys.onReturnPressed: {
+                            messageBoard.append(textInput.text)
+                            flickable.contentY = messageBoard.contentHeight
+                            console.log("Content Height: " + messageBoard.contentHeight)
+                            console.log("Content Y: " + flickable.contentY)
+                        }
                     }
                 }
             }
+
+
         }
     }
 }
