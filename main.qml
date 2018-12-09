@@ -8,13 +8,13 @@ import QtQuick.Window 2.0
 
 Window {
     visible: true
-    width: Screen.width
-    height: Screen.height
+    width: 1280
+    height: 720
     title: qsTr("Hello World")
 
     Rectangle {
-        width: Screen.width
-        height: Screen.height
+        width: parent.width
+        height: parent.height
         color: "#ffffff"
 
         Column {
@@ -450,7 +450,7 @@ Window {
                         selectByMouse: true
                         Keys.onReturnPressed: {
                             messageBoard.append(textInput.text)
-                            flickable.contentY = messageBoard.contentHeight - chatMessagesRow.height
+                            flickable.contentY = messageBoard.contentHeight - chatMessagesRow.height + 17
                             console.log("Content Height: " + messageBoard.contentHeight)
                             console.log("Chat Messages Rows Height:" + chatMessagesRow.height)
                         }
@@ -462,3 +462,4 @@ Window {
         }
     }
 }
+
