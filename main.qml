@@ -4,16 +4,17 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.3
 import QtQuick 2.7
 import QtQuick.Controls 2.0
+import QtQuick.Window 2.0
 
 Window {
     visible: true
-    width: 1920
-    height: 1080
+    width: Screen.width
+    height: Screen.height
     title: qsTr("Hello World")
 
     Rectangle {
-        width: 1920
-        height: 1080
+        width: Screen.width
+        height: Screen.height
         color: "#ffffff"
 
         Column {
@@ -449,9 +450,9 @@ Window {
                         selectByMouse: true
                         Keys.onReturnPressed: {
                             messageBoard.append(textInput.text)
-                            flickable.contentY = messageBoard.contentHeight
+                            flickable.contentY = messageBoard.contentHeight - chatMessagesRow.height
                             console.log("Content Height: " + messageBoard.contentHeight)
-                            console.log("Content Y: " + flickable.contentY)
+                            console.log("Chat Messages Rows Height:" + chatMessagesRow.height)
                         }
                     }
                 }
