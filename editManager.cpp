@@ -5,6 +5,10 @@ EditManager::EditManager(){
 
 }
 
-void EditManager::updateText(QVariant newText){
-    emit triggerUpdateText(newText);
+//void EditManager::updateText(QVariant newText){
+//    emit triggerUpdateText(newText);
+//}
+
+void EditManager::testMethod(const std::string *text) {
+    emit testSignals(text);
 }

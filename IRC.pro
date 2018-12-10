@@ -16,7 +16,8 @@ SOURCES += \
         main.cpp \
         tcpUserSocket.cpp\
         channelBuffer.cpp \
-    editManager.cpp
+    editManager.cpp \
+    mainUI.cpp
 
 RESOURCES += qml.qrc
 
@@ -34,4 +35,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
         tcpUserSocket.h\
         channelBuffer.h \
-    editManager.h
+    editManager.h \
+    mainUI.h

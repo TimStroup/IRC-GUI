@@ -417,7 +417,7 @@ Window {
                         y: 0
                         width: parent.width
                         height: parent.height
-                        text: qsTr("Text Area")
+                        text: qsTr("")
                         readOnly: true
 
                     }
