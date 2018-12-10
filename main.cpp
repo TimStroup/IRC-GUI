@@ -1,7 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "tcpUserSocket.h"
-#include "/home/tim/Documents/cs457/IRC-Application/channelBuffer.h"
+#include "channelBuffer.h"
+#include "editManager.h"
 #include <iostream>
 #include <fstream>
 #include <errno.h>
@@ -15,6 +16,7 @@ vector<string> channels;
 vector<channelBuffer*> buffers;
 string listeningChannel;
 int ready = 1;
+EditManager *manager;
 
 string status = "";
 QObject* inputArea;
@@ -75,12 +77,12 @@ bool responseParser(string msg){
         return true;
     }
     else {
-        /*string existingText = inputArea->property("text").toString().toStdString();
+        string existingText = inputArea->property("text").toString().toStdString();
         existingText += msg;
         QString convert = QString(existingText.c_str());
         QVariant property = convert;
         cout <<"Object Name" << inputArea->objectName().toStdString() << "\n";
-        inputArea->setProperty("text", property);*/
+        manager->triggerUpdateText(property);
         cout << msg << endl;
         return true;
     }
@@ -97,12 +99,25 @@ void receiveMessages(cs457::tcpUserSocket* tcpUserSocket) {
 
     tcpUserSocket->sendString("QUIT");
 }
+class MainUI : public QObject{
+    Q_OBJECT
+  public:
+    explicit MainUI();
+public slots:
+    void updateText(QVariant newText){
+        inputArea->setProperty("text",newText);
+    }
+};
 
 int main(int argc, char *argv[])
 {
     cs457::tcpUserSocket *socket = new cs457::tcpUserSocket("127.0.0.1",5437);
     socket->connectToServer();
+    MainUI *ui = new MainUI();
 
+    manager = new EditManager();
+
+    QObject::connect(manager,SIGNAL(EditManager::triggerUpdateText(QVariant)),ui,SLOT(MainUI::updateText(QVariant)));
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
@@ -115,6 +130,7 @@ int main(int argc, char *argv[])
 
     QObject *mainWindow = list.takeAt(0);
     inputArea = mainWindow->findChild<QObject*>("inputArea");
+    inputArea->setProperty("text",  QVariant("string:"));
     thread readThread(receiveMessages,socket);
 
     if (engine.rootObjects().isEmpty())
@@ -123,3 +139,5 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+
+
