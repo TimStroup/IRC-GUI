@@ -15,7 +15,6 @@ mainUI::mainUI(QObject* qObjectPointer,cs457::tcpUserSocket *Setsocket)
 void mainUI::testSlots(const std::string *newText ) {
     QVariant qVariant(newText->c_str());
     inputArea->setProperty("text", qVariant);
-    std::cout << newText << std::endl;
     delete (newText);
 }
 
