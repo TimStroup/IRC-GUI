@@ -2,9 +2,14 @@
 #include <iostream>
 #include <QVariant>
 #include <QString>
-mainUI::mainUI(QObject* qObjectPointer)
+#include <tcpUserSocket.h>
+
+cs457::tcpUserSocket *socketSender;
+
+mainUI::mainUI(QObject* qObjectPointer,cs457::tcpUserSocket *Setsocket)
 {
     mainUI::inputArea = qObjectPointer;
+    socketSender =Setsocket;
 }
 
 void mainUI::testSlots(const std::string *newText ) {
@@ -12,4 +17,8 @@ void mainUI::testSlots(const std::string *newText ) {
     inputArea->setProperty("text", qVariant);
     std::cout << newText << std::endl;
     delete (newText);
+}
+
+void mainUI::getCommand(const QString &command){
+    socketSender->sendString(command.toStdString(),false);
 }

@@ -412,7 +412,7 @@ Window {
 
                     TextArea.flickable: TextArea {
                         id: messageBoard
-                        objectName: "inputArea"
+                        objectName: "OutputArea"
                         x: 0
                         y: 0
                         width: parent.width
@@ -432,15 +432,17 @@ Window {
                 width: parent.width
                 height: parent.height / 12
 
+
                 Rectangle {
                     id: rectangle1
                     width: parent.width
                     height: parent.height
-                    color: "#747474"
-
+                    color: "#747474"          
                     TextInput {
                         id: textInput
+                        objectName: "input"
                         text: "Message to ..."
+                        signal qmlSignal(string msg)
                         width: parent.width
                         height: parent.height
                         leftPadding: 10
@@ -449,11 +451,14 @@ Window {
                         mouseSelectionMode: TextInput.SelectCharacters
                         verticalAlignment: Text.AlignVCenter
                         selectByMouse: true
+
                         Keys.onReturnPressed: {
-                            messageBoard.append(textInput.text)
+                            textInput.qmlSignal(textInput.text)
+                            //messageBoard.append(textInput.text)
                             flickable.contentY = messageBoard.contentHeight - chatMessagesRow.height + 17
-                            console.log("Content Height: " + messageBoard.contentHeight)
-                            console.log("Chat Messages Rows Height:" + chatMessagesRow.height)
+                            textInput.text = ""
+                            //console.log("Content Height: " + messageBoard.contentHeight)
+                           // console.log("Chat Messages Rows Height:" + chatMessagesRow.height)
                         }
                     }
                 }

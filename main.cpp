@@ -22,6 +22,7 @@ const string *message;
 EditManager *manager;
 string status = "";
 QObject* inputArea;
+QObject* input;
 
 void addNewChannel(string msg){
     string channel = "";
@@ -37,8 +38,11 @@ void addNewChannel(string msg){
     listeningChannel = channel;
     channels.push_back(channel);
     buffers.push_back(new channelBuffer(channel));
-    cout << msg << endl;
-    cout << "now listening to channel: " + channel << endl;
+    string history =inputArea->property("text").toString().toStdString();
+    message = new string(history +"\n" + msg + "\n" +"now listening to channel: " + channel + "\n");
+    manager->testMethod(message);
+    //cout << msg << endl;
+    //cout << "now listening to channel: " + channel << endl;
 }
 
 void getChannelMessage(string msg){
@@ -53,7 +57,10 @@ string channel = "";
     }
     if(channel == listeningChannel){
         //change to print to the text area
-        cout << msg << endl;
+        string history =inputArea->property("text").toString().toStdString();
+        message = new string(history +"\n" + msg);
+        manager->testMethod(message);
+        //cout << msg << endl;
     }
     else{
         for(channelBuffer *buffer: buffers){
@@ -82,7 +89,7 @@ bool responseParser(string msg){
         string history =inputArea->property("text").toString().toStdString();
         message = new string(history +"\n" + msg);
         manager->testMethod(message);
-        cout << msg << endl;
+        //cout << msg << endl;
         return true;
     }
 }
@@ -115,14 +122,15 @@ int main(int argc, char *argv[])
     QList<QObject*> list =  engine.rootObjects();
 
     QObject *mainWindow = list.takeAt(0);
-    inputArea = mainWindow->findChild<QObject*>("inputArea");
-    mainUI *mainUI1 = new mainUI(inputArea);
+    inputArea = mainWindow->findChild<QObject*>("OutputArea");
+    input = mainWindow->findChild<QObject*>("input");
+
+    mainUI *mainUI1 = new mainUI(inputArea,socket);
 
     manager = new EditManager();
 
     QObject::connect(manager, SIGNAL(testSignals(const string*)), mainUI1, SLOT(testSlots(const string*)));
-    //QObject::connect(manager,SIGNAL(EditManager::triggerUpdateText(QVariant)),ui,SLOT(MainUI::updateText(QVariant)));
-    //manager->testMethod("Yo");
+    QObject::connect(input,SIGNAL(qmlSignal(QString)),mainUI1,SLOT(getCommand(const QString&)));
 
     thread readThread(receiveMessages,socket);
 
