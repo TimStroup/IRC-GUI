@@ -390,6 +390,7 @@ Window {
 
                     Text {
                         id: channelNameText
+                        objectName: "channelTitle"
                         width: parent.width
                         height: parent.height
                         color: "#ffffff"

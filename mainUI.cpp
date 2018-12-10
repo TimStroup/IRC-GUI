@@ -28,6 +28,9 @@ void mainUI::setChannelName(const std::string *newChannel, int numChannels){
     std::string chan = "Channel";
     chan += to_string(numChannels);
     QObject* button = mainUI::mainWindow->findChild<QObject*>(chan.c_str());
+    QObject* channelNameText = mainUI::mainWindow->findChild<QObject*>("channelTitle");
+
     button->setProperty("text",qVariant);
+    channelNameText->setProperty("text", qVariant);
     delete (newChannel);
 }
