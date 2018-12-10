@@ -21,6 +21,9 @@ void mainUI::testSlots(const std::string *newText ) {
 
 void mainUI::getCommand(const QString &command){
     string comString = command.toStdString();
+    if(comString.size() >0){
+
+
     if(comString.at(0) == '/'){
         socketSender->sendString(comString.substr(1,comString.size()));
     }
@@ -35,6 +38,7 @@ void mainUI::getCommand(const QString &command){
         std::string *updated = new string(currentText + "\n" + helpText);
         outputArea->setProperty("text",QVariant(updated->c_str()));
 
+    }
     }
 
 }
