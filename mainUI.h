@@ -10,6 +10,7 @@ class mainUI : public QObject
     public:
         mainUI(QObject*, cs457::tcpUserSocket*);
         class QObject* mainWindow;
+        string selectedChannel = "";
 
     public slots:
         void testSlots(const string*);
