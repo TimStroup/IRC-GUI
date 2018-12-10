@@ -454,7 +454,7 @@ Window {
 
                         Keys.onReturnPressed: {
                             textInput.qmlSignal(textInput.text)
-                            messageBoard.append(textInput.text)
+                            //messageBoard.append(textInput.text)
                             flickable.contentY = messageBoard.contentHeight - chatMessagesRow.height + 17
                             textInput.text = ""
                             //console.log("Content Height: " + messageBoard.contentHeight)
