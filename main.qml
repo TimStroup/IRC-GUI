@@ -412,6 +412,7 @@ Window {
 
                     TextArea.flickable: TextArea {
                         id: messageBoard
+                        objectName: "inputArea"
                         x: 0
                         y: 0
                         width: parent.width
