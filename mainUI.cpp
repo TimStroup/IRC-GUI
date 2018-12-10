@@ -8,16 +8,26 @@ cs457::tcpUserSocket *socketSender;
 
 mainUI::mainUI(QObject* qObjectPointer,cs457::tcpUserSocket *Setsocket)
 {
-    mainUI::inputArea = qObjectPointer;
+    mainUI::mainWindow = qObjectPointer;
     socketSender =Setsocket;
 }
 
 void mainUI::testSlots(const std::string *newText ) {
     QVariant qVariant(newText->c_str());
-    inputArea->setProperty("text", qVariant);
+    QObject* outputArea = mainUI::mainWindow->findChild<QObject*>("outputArea");
+    outputArea->setProperty("text", qVariant);
     delete (newText);
 }
 
 void mainUI::getCommand(const QString &command){
     socketSender->sendString(command.toStdString(),false);
+}
+
+void mainUI::setChannelName(const std::string *newChannel, int numChannels){
+    QVariant qVariant(newChannel->c_str());
+    std::string chan = "Channel";
+    chan += to_string(numChannels);
+    QObject* button = mainUI::mainWindow->findChild<QObject*>(chan.c_str());
+    button->setProperty("text",qVariant);
+    delete (newChannel);
 }

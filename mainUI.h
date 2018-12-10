@@ -9,11 +9,12 @@ class mainUI : public QObject
 
     public:
         mainUI(QObject*, cs457::tcpUserSocket*);
-        class QObject* inputArea;
+        class QObject* mainWindow;
 
     public slots:
         void testSlots(const string*);
         void getCommand(const QString &command);
+        void setChannelName(const string*,int);
 };
 
 #endif // MAINUI_H

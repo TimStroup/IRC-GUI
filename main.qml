@@ -113,19 +113,15 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel 1"
+                            text: ""
+                            objectName: "Channel1"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
 
                     }
                 }
-                ///////////////////////////////////////////////////////////////////////////////
-                Connections {
-                    target: channel1Button
-                    onClicked: channelNameText.text = channel1Button.text
-                }
-                ////////////////////////////////////////////////////////////////////////////////
+
                 Row {
                     id: channelRow2
                     y: 2 * parent.height / 12
@@ -144,7 +140,8 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel 2"
+                            text: ""
+                            objectName: "Channel2"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
@@ -170,7 +167,8 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel 3"
+                            text: ""
+                            objectName: "Channel3"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
@@ -195,7 +193,8 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel 4"
+                            text: ""
+                            objectName: "Channel4"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
@@ -220,7 +219,8 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel 5"
+                            text: ""
+                            objectName: "Channel5"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
@@ -245,7 +245,8 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel 6"
+                            text: ""
+                            objectName: "Channel6"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
@@ -271,7 +272,8 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel 7"
+                            text: ""
+                            objectName: "Channel7"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
@@ -296,7 +298,8 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel 8"
+                            text: ""
+                            objectName: "Channel8"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
@@ -321,7 +324,8 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel 9"
+                            text: ""
+                            objectName: "Channel9"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
@@ -346,7 +350,8 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel 10"
+                            text: ""
+                            objectName: "Channel10"
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
@@ -412,7 +417,7 @@ Window {
 
                     TextArea.flickable: TextArea {
                         id: messageBoard
-                        objectName: "OutputArea"
+                        objectName: "outputArea"
                         x: 0
                         y: 0
                         width: parent.width

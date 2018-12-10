@@ -23,6 +23,7 @@ EditManager *manager;
 string status = "";
 QObject* inputArea;
 QObject* input;
+int numOfChannels = 0;
 
 void addNewChannel(string msg){
     string channel = "";
@@ -38,6 +39,9 @@ void addNewChannel(string msg){
     listeningChannel = channel;
     channels.push_back(channel);
     buffers.push_back(new channelBuffer(channel));
+    //sets the name of the channel button
+    message = new string(channel);
+    manager->triggerChannelName(message,channels.size());
     string history =inputArea->property("text").toString().toStdString();
     message = new string(history +"\n" + msg + "\n" +"now listening to channel: " + channel + "\n");
     manager->testMethod(message);
@@ -122,15 +126,16 @@ int main(int argc, char *argv[])
     QList<QObject*> list =  engine.rootObjects();
 
     QObject *mainWindow = list.takeAt(0);
-    inputArea = mainWindow->findChild<QObject*>("OutputArea");
+    inputArea = mainWindow->findChild<QObject*>("outputArea");
     input = mainWindow->findChild<QObject*>("input");
 
-    mainUI *mainUI1 = new mainUI(inputArea,socket);
+    mainUI *mainUI1 = new mainUI(mainWindow,socket);
 
     manager = new EditManager();
 
     QObject::connect(manager, SIGNAL(testSignals(const string*)), mainUI1, SLOT(testSlots(const string*)));
     QObject::connect(input,SIGNAL(qmlSignal(QString)),mainUI1,SLOT(getCommand(const QString&)));
+    QObject::connect(manager, SIGNAL(setChannelName(const string*,int)),mainUI1,SLOT(setChannelName(const string*,int)));
 
     thread readThread(receiveMessages,socket);
 

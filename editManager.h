@@ -8,9 +8,11 @@ public:
     EditManager();
     //void updateText(QVariant newText);
     void testMethod(const string*);
+    void triggerChannelName(const string*,int);
 signals:
     //void triggerUpdateText(QVariant newText);
     void testSignals(const string*);
+    void setChannelName(const string*,int);
 
 };
 
