@@ -78,6 +78,8 @@ void mainUI::button1(const QString &channel)
                newText += channelBuffers->at(i)->dumpMessages();
                textInput->setProperty("text",QVariant(newText.c_str()));
                *currentChannel = chan;
+               QObject* channelNameText = mainUI::mainWindow->findChild<QObject*>("channelTitle");
+               channelNameText->setProperty("text", QVariant(chan.c_str()));
             }
         }
     }
