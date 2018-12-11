@@ -53,6 +53,8 @@ void mainUI::setChannelName(const std::string *newChannel, int numChannels){
     chan += to_string(numChannels);
     QObject* button = mainUI::mainWindow->findChild<QObject*>(chan.c_str());
     QObject* channelNameText = mainUI::mainWindow->findChild<QObject*>("channelTitle");
+    QObject* textInput =  mainWindow->findChild<QObject*>("outputArea");
+    textInput->setProperty("text",QVariant("type: a message"));
     selectedChannel = *newChannel;
     button->setProperty("text",qVariant);
     channelNameText->setProperty("text", qVariant);
