@@ -32,7 +32,7 @@ void mainUI::getCommand(const QString &command){
         socketSender->sendString(comString.substr(1,comString.size()));
     }
     else if(selectedChannel != ""){
-        comString = "privmsg " + selectedChannel + " :" + comString;
+        comString = "privmsg " + *currentChannel + " :" + comString;
         socketSender->sendString(comString);
     }
     else{
@@ -70,51 +70,15 @@ void mainUI::button1(const QString &channel)
 {
     string chan = channel.toStdString();
     if(!emptyChannel(chan)){
-
+        for(int i = 0; i < channelBuffers->size();i++){
+            if(channelBuffers->at(i)->name == chan){
+               QObject* textInput =  mainWindow->findChild<QObject*>("outputArea");
+               textInput->setProperty("text",QVariant(""));
+               string newText = "";
+               newText += channelBuffers->at(i)->dumpMessages();
+               textInput->setProperty("text",QVariant(newText.c_str()));
+               *currentChannel = chan;
+            }
+        }
     }
-}
-
-void mainUI::button2(const QString &channel)
-{
-
-}
-
-void mainUI::button3(const QString &channel)
-{
-
-}
-
-void mainUI::button4(const QString &channel)
-{
-
-}
-
-void mainUI::button5(const QString &channel)
-{
-
-}
-
-void mainUI::button6(const QString &channel)
-{
-
-}
-
-void mainUI::button7(const QString &channel)
-{
-
-}
-
-void mainUI::button8(const QString &channel)
-{
-
-}
-
-void mainUI::button9(const QString &channel)
-{
-
-}
-
-void mainUI::button10(const QString &channel)
-{
-
 }

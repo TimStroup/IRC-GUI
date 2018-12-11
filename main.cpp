@@ -153,15 +153,15 @@ int main(int argc, char *argv[])
     QObject::connect(input,SIGNAL(qmlSignal(QString)),mainUI1,SLOT(getCommand(const QString&)));
     QObject::connect(manager, SIGNAL(setChannelName(const string*,int)),mainUI1,SLOT(setChannelName(const string*,int)));
     QObject::connect(button1,SIGNAL(button1Signal(QString)),mainUI1,SLOT(button1(const QString&)));
-    QObject::connect(button2,SIGNAL(button2Signal(QString)),mainUI1,SLOT(button2(const QString&)));
-    QObject::connect(button3,SIGNAL(button3Signal(QString)),mainUI1,SLOT(button3(const QString&)));
-    QObject::connect(button4,SIGNAL(button4Signal(QString)),mainUI1,SLOT(button4(const QString&)));
-    QObject::connect(button5,SIGNAL(button5Signal(QString)),mainUI1,SLOT(button5(const QString&)));
-    QObject::connect(button6,SIGNAL(button6Signal(QString)),mainUI1,SLOT(button6(const QString&)));
-    QObject::connect(button7,SIGNAL(button7Signal(QString)),mainUI1,SLOT(button7(const QString&)));
-    QObject::connect(button8,SIGNAL(button8Signal(QString)),mainUI1,SLOT(button8(const QString&)));
-    QObject::connect(button9,SIGNAL(button9Signal(QString)),mainUI1,SLOT(button9(const QString&)));
-    QObject::connect(button10,SIGNAL(button10Signal(QString)),mainUI1,SLOT(button10(const QString&)));
+    QObject::connect(button2,SIGNAL(button2Signal(QString)),mainUI1,SLOT(button1(const QString&)));
+    QObject::connect(button3,SIGNAL(button3Signal(QString)),mainUI1,SLOT(button1(const QString&)));
+    QObject::connect(button4,SIGNAL(button4Signal(QString)),mainUI1,SLOT(button1(const QString&)));
+    QObject::connect(button5,SIGNAL(button5Signal(QString)),mainUI1,SLOT(button1(const QString&)));
+    QObject::connect(button6,SIGNAL(button6Signal(QString)),mainUI1,SLOT(button1(const QString&)));
+    QObject::connect(button7,SIGNAL(button7Signal(QString)),mainUI1,SLOT(button1(const QString&)));
+    QObject::connect(button8,SIGNAL(button8Signal(QString)),mainUI1,SLOT(button1(const QString&)));
+    QObject::connect(button9,SIGNAL(button9Signal(QString)),mainUI1,SLOT(button1(const QString&)));
+    QObject::connect(button10,SIGNAL(button10Signal(QString)),mainUI1,SLOT(button1(const QString&)));
 
     thread readThread(receiveMessages,socket);
 

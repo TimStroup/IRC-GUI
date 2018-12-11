@@ -11,9 +11,10 @@ void channelBuffer::addMessage(string message){
     channelBuffer::messages.push_back(message);
 }
 
-void channelBuffer::dumpMessages(){
+string channelBuffer::dumpMessages(){
+    string messages ="";
     for(string msg : channelBuffer::messages){
-        cout << msg << "\n";
+        messages += msg + "\n";
     }
-    channelBuffer::messages.clear();
+    return messages;
 }
