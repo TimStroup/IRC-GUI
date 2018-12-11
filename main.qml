@@ -103,20 +103,25 @@ Window {
 
                     Button {
                         id: channel1Button
+                        text: ""
+                        objectName: "Channel1"
                         width: parent.width
                         height: parent.height
                         font.pixelSize: 12
-
+                        signal button1Signal(string msg)
                         background: Rectangle {
                             opacity: enabled ? 0.3 : 0.3
                         }
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: ""
-                            objectName: "Channel1"
+                            text: channel1Button.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
+                        }
+                        onPressed: {
+                            channel1Button.button1Signal(channel1Button.text)
+                            console.log(channel1Button.text)
                         }
 
                     }
@@ -130,9 +135,13 @@ Window {
 
                     Button {
                         id: channel2Button
+                        objectName: "Channel2"
+                        text: ""
                         width: parent.width
                         height: parent.height
                         font.pixelSize: 12
+                        signal button2Signal(string msg)
+
 
                         background: Rectangle {
                             opacity: enabled ? 0.3 : 0.3
@@ -140,10 +149,12 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: ""
-                            objectName: "Channel2"
+                            text: channel2Button.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
+                        }
+                        onClicked: {
+                            channel2Button.button2Signal(channel2Button.text)
                         }
 
                     }
@@ -157,9 +168,12 @@ Window {
 
                     Button {
                         id: channel3Button
+                        objectName: "Channel3"
+                        text: ""
                         width: parent.width
                         height: parent.height
                         font.pixelSize: 12
+                        signal button3Signal(string msg)
 
                         background: Rectangle {
                             opacity: enabled ? 0.3 : 0.3
@@ -167,10 +181,12 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: ""
-                            objectName: "Channel3"
+                            text: channel3Button.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
+                        }
+                        onClicked: {
+                            channel3Button.button3Signal(channel3Button.text)
                         }
                     }
                 }
@@ -183,9 +199,12 @@ Window {
 
                     Button {
                         id: channel4Button
+                        objectName: "Channel4"
+                        text: ""
                         width: parent.width
                         height: parent.height
                         font.pixelSize: 12
+                        signal button4Signal(string msg)
 
                         background: Rectangle {
                             opacity: enabled ? 0.3 : 0.3
@@ -193,10 +212,12 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: ""
-                            objectName: "Channel4"
+                            text: channel4Button.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
+                        }
+                        onClicked: {
+                            channel4Button.button4Signal(channel4Button.text)
                         }
                     }
                 }
@@ -209,9 +230,12 @@ Window {
 
                     Button {
                         id: channel5Button
+                        objectName: "Channel5"
+                        text: ""
                         width: parent.width
                         height: parent.height
                         font.pixelSize: 12
+                        signal button5Signal(string msg)
 
                         background: Rectangle {
                             opacity: enabled ? 0.3 : 0.3
@@ -219,10 +243,12 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: ""
-                            objectName: "Channel5"
+                            text: channel5Button.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
+                        }
+                        onClicked: {
+                            channel5Button.button5Signal(channel5Button.text)
                         }
                     }
                 }
@@ -235,9 +261,12 @@ Window {
 
                     Button {
                         id: channel6Button
+                        objectName: "Channel6"
+                        text: ""
                         width: parent.width
                         height: parent.height
                         font.pixelSize: 12
+                        signal button6Signal(string msg)
 
                         background: Rectangle {
                             opacity: enabled ? 0.3 : 0.3
@@ -245,10 +274,12 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: ""
-                            objectName: "Channel6"
+                            text: channel6Button.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
+                        }
+                        onClicked: {
+                            channel6Button.button6Signal(channel6Button.text)
                         }
                     }
                 }
@@ -262,9 +293,12 @@ Window {
 
                     Button {
                         id: channel7Button
+                        objectName: "Channel7"
+                        text: ""
                         width: parent.width
                         height: parent.height
                         font.pixelSize: 12
+                        signal button7Signal(string msg)
 
                         background: Rectangle {
                             opacity: enabled ? 0.3 : 0.3
@@ -272,10 +306,12 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: ""
-                            objectName: "Channel7"
+                            text: channel7Button.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
+                        }
+                        onClicked: {
+                            channel7Button.button7Signal(channel7Button.text)
                         }
                     }
                 }
@@ -288,9 +324,12 @@ Window {
 
                     Button {
                         id: channel8Button
+                        objectName: "Channel8"
+                        text: ""
                         width: parent.width
                         height: parent.height
                         font.pixelSize: 12
+                        signal button8Signal(string msg)
 
                         background: Rectangle {
                             opacity: enabled ? 0.3 : 0.3
@@ -298,10 +337,12 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: ""
-                            objectName: "Channel8"
+                            text: channel8Button.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
+                        }
+                        onClicked: {
+                            channel8Button.button8Signal(channel8Button.text)
                         }
                     }
                 }
@@ -314,9 +355,12 @@ Window {
 
                     Button {
                         id: channel9Button
+                        objectName: "Channel9"
+                        text: ""
                         width: parent.width
                         height: parent.height
                         font.pixelSize: 12
+                        signal button9Signal(string msg)
 
                         background: Rectangle {
                             opacity: enabled ? 0.3 : 0.3
@@ -324,10 +368,12 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: ""
-                            objectName: "Channel9"
+                            text: channel9Button.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
+                        }
+                        onClicked: {
+                            channel9Button.button9Signal(channel9Button.text)
                         }
                     }
                 }
@@ -340,9 +386,12 @@ Window {
 
                     Button {
                         id: channel10Button
+                        objectName: "Channel10"
+                        text: ""
                         width: parent.width
                         height: parent.height
                         font.pixelSize: 12
+                        signal button10Signal(string msg)
 
                         background: Rectangle {
                             opacity: enabled ? 0.3 : 0.3
@@ -350,10 +399,13 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: ""
-                            objectName: "Channel10"
+                            text: channel10Button.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
+                        }
+
+                        onClicked: {
+                            channel10Button.button10Signal(channel10Button.text)
                         }
                     }
                 }
