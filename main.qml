@@ -10,7 +10,7 @@ Window {
     visible: true
     width: 1280
     height: 720
-    title: qsTr("Hello World")
+    title: qsTr("IRC Application by Trey and Tim")
 
     Rectangle {
         width: parent.width
@@ -88,7 +88,7 @@ Window {
 
                         contentItem: Text {
                             color: "#ffffff"
-                            text: "Channel Settings"
+                            text: ""
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
                         }
