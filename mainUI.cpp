@@ -54,3 +54,53 @@ void mainUI::setChannelName(const std::string *newChannel, int numChannels){
     channelNameText->setProperty("text", qVariant);
     delete (newChannel);
 }
+
+void mainUI::button1(const QString &channel)
+{
+
+}
+
+void mainUI::button2(const QString &channel)
+{
+
+}
+
+void mainUI::button3(const QString &channel)
+{
+
+}
+
+void mainUI::button4(const QString &channel)
+{
+
+}
+
+void mainUI::button5(const QString &channel)
+{
+
+}
+
+void mainUI::button6(const QString &channel)
+{
+
+}
+
+void mainUI::button7(const QString &channel)
+{
+
+}
+
+void mainUI::button8(const QString &channel)
+{
+
+}
+
+void mainUI::button9(const QString &channel)
+{
+
+}
+
+void mainUI::button10(const QString &channel)
+{
+
+}

@@ -121,7 +121,6 @@ Window {
                         }
                         onPressed: {
                             channel1Button.button1Signal(channel1Button.text)
-                            console.log(channel1Button.text)
                         }
 
                     }
