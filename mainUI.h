@@ -2,13 +2,14 @@
 #define MAINUI_H
 #include <QObject>
 #include <tcpUserSocket.h>
+#include "channelBuffer.h"
 using namespace std;
 class mainUI : public QObject
 {
     Q_OBJECT
 
     public:
-        mainUI(QObject*, cs457::tcpUserSocket*);
+        mainUI(QObject*, cs457::tcpUserSocket*,string*,vector<channelBuffer*>*);
         class QObject* mainWindow;
         string selectedChannel = "";
 

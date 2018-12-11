@@ -5,11 +5,15 @@
 #include <tcpUserSocket.h>
 
 cs457::tcpUserSocket *socketSender;
+string *currentChannel;
+vector<channelBuffer*> *channelBuffers;
 
-mainUI::mainUI(QObject* qObjectPointer,cs457::tcpUserSocket *Setsocket)
+mainUI::mainUI(QObject* qObjectPointer,cs457::tcpUserSocket *Setsocket,string *listeningChannel,vector<channelBuffer*> *buffers)
 {
     mainUI::mainWindow = qObjectPointer;
     socketSender =Setsocket;
+    currentChannel = listeningChannel;
+    channelBuffers = buffers;
 }
 
 void mainUI::testSlots(const std::string *newText ) {
@@ -55,9 +59,19 @@ void mainUI::setChannelName(const std::string *newChannel, int numChannels){
     delete (newChannel);
 }
 
+bool emptyChannel(string channel){
+    if(channel.size() > 0){
+        return false;
+    }
+    return true;
+}
+
 void mainUI::button1(const QString &channel)
 {
+    string chan = channel.toStdString();
+    if(!emptyChannel(chan)){
 
+    }
 }
 
 void mainUI::button2(const QString &channel)

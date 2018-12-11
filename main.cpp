@@ -24,6 +24,7 @@ string status = "";
 QObject* inputArea;
 QObject* input;
 int numOfChannels = 0;
+
 QObject* button1;QObject* button2;
 QObject* button3;QObject* button4;
 QObject* button5;QObject* button6;
@@ -65,18 +66,17 @@ string channel = "";
             channel += msg.at(i);
         }
     }
+
+    //channel does not diplay unless being listened to
     if(channel == listeningChannel){
-        //change to print to the text area
         string history =inputArea->property("text").toString().toStdString();
         message = new string(history +"\n" + msg);
         manager->testMethod(message);
-        //cout << msg << endl;
     }
-    else{
-        for(channelBuffer *buffer: buffers){
-            if(buffer->name == channel){
-                buffer->addMessage(msg);
-            }
+    //now the channel stores all history of messages even when being listend to
+    for(channelBuffer *buffer: buffers){
+        if(buffer->name == channel){
+            buffer->addMessage(msg);
         }
     }
 }
@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
     inputArea = mainWindow->findChild<QObject*>("outputArea");
     input = mainWindow->findChild<QObject*>("input");
 
-    mainUI *mainUI1 = new mainUI(mainWindow,socket);
+    mainUI *mainUI1 = new mainUI(mainWindow,socket,&listeningChannel,&buffers);
 
     manager = new EditManager();
     button1 = mainWindow->findChild<QObject*>("Channel1");
